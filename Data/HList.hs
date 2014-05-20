@@ -44,7 +44,7 @@ import Data.HList.GhcExperiments
 
 import Data.STRef
 import Data.IORef
-import Data.Typeable
+import Data.Typeable ()
 import Control.Monad
 import Control.Monad.ST
 import Control.Monad.Fix

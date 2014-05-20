@@ -10,7 +10,7 @@
 
 module Data.HList.TIC where
 
-import Data.Dynamic
+import Data.Dynamic (Dynamic, Typeable, toDyn, fromDynamic)
 
 import Data.HList.FakePrelude
 import Data.HList.HListPrelude

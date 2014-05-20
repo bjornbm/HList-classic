@@ -13,7 +13,7 @@
 
 module Data.HList.Label4 where
 
-import Data.Typeable
+import Data.Typeable (Typeable, typeOf)
 import Data.Char
 
 import Data.HList.FakePrelude

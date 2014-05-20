@@ -23,7 +23,7 @@ import Data.HList.FakePrelude
 import Data.HList.HListPrelude
 import Data.HList.HArray
 import Data.HList.Record
-import Data.Typeable
+import Data.Typeable (Typeable, typeOf, TyCon, mkTyCon3, mkTyConApp)
 
 
 {-----------------------------------------------------------------------------}
@@ -261,40 +261,41 @@ instance RecordEquiv' (r1->HJust r2) (r2->HNothing) HNothing where
 {-----------------------------------------------------------------------------}
 -- Typeable instances
 
+{-
 hNilTcName :: TyCon
-hNilTcName = mkTyCon "HList.HNil"
+hNilTcName = mkTyCon3 "HList-classic" "Data.HList.GhcRecord" "HNil"
 instance Typeable HNil
  where
   typeOf _ = mkTyConApp hNilTcName []
 
 hConsTcName :: TyCon
-hConsTcName = mkTyCon "HList.HCons"
+hConsTcName = mkTyCon3 "HList-classic" "Data.HList.GhcRecord" "HCons"
 instance (Typeable x, Typeable y) => Typeable (HCons x y)
  where
   typeOf ~(HCons x y)
    = mkTyConApp hConsTcName [ typeOf x, typeOf y ]
 
 recordTcName :: TyCon
-recordTcName = mkTyCon "HList.Record"
+recordTcName = mkTyCon3 "HList-classic" "Data.HList.GhcRecord" "Record"
 instance Typeable x => Typeable (Record x)
  where
   typeOf ~(Record x)
    = mkTyConApp recordTcName [ typeOf x ]
 
 hFieldTcName :: TyCon
-hFieldTcName = mkTyCon "HList.F"
+hFieldTcName = mkTyCon3 "HList-classic" "Data.HList.GhcRecord" "F"
 instance (Typeable x, Typeable y) => Typeable (LVPair x y)
  where
   typeOf _
    = mkTyConApp hFieldTcName [ typeOf (undefined::x), typeOf (undefined::y)  ]
 
 proxyTcName :: TyCon
-proxyTcName = mkTyCon "HList.Proxy"
+proxyTcName = mkTyCon3 "HList-classic" "Data.HList.GhcRecord" "Proxy"
 instance Typeable x => Typeable (Proxy x)
  where
   typeOf (_::Proxy x)
    = mkTyConApp proxyTcName [ typeOf (undefined::x) ]
-
+-- -}
 
 {-----------------------------------------------------------------------------}
 
