@@ -11,8 +11,7 @@ Author:              2004 Oleg Kiselyov (FNMOC, Monterey), Ralf Laemmel (CWI/VU,
 Maintainer:          oleg@pobox.com
 
 Data-files:          README
-Cabal-version:       >= 1.4
-Tested-With:         GHC==6.12.1
+Tested-With:         GHC==7.8.2
 Build-Depends:       base >= 3 && < 5, template-haskell
 Build-Type:          Simple
 Exposed-modules:     Data.HList, Data.HList.CommonMain, Data.HList.Variant, Data.HList.GhcSyntax,
